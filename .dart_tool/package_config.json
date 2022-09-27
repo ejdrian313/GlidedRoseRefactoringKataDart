@@ -122,6 +122,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "mutation_test",
+      "rootUri": "file:///Users/adriankujawski/.pub-cache/hosted/pub.dartlang.org/mutation_test-1.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "node_preamble",
       "rootUri": "file:///Users/adriankujawski/.pub-cache/hosted/pub.dartlang.org/node_preamble-2.0.1",
       "packageUri": "lib/",
@@ -138,6 +144,12 @@
       "rootUri": "file:///Users/adriankujawski/.pub-cache/hosted/pub.dartlang.org/path-1.8.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "petitparser",
+      "rootUri": "file:///Users/adriankujawski/.pub-cache/hosted/pub.dartlang.org/petitparser-5.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
     },
     {
       "name": "pool",
@@ -266,6 +278,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "xml",
+      "rootUri": "file:///Users/adriankujawski/.pub-cache/hosted/pub.dartlang.org/xml-6.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "yaml",
       "rootUri": "file:///Users/adriankujawski/.pub-cache/hosted/pub.dartlang.org/yaml-3.1.1",
       "packageUri": "lib/",
@@ -278,7 +296,7 @@
       "languageVersion": "2.10"
     }
   ],
-  "generated": "2022-09-22T12:29:55.535417Z",
+  "generated": "2022-09-26T13:49:57.616755Z",
   "generator": "pub",
-  "generatorVersion": "2.17.5"
+  "generatorVersion": "2.18.1"
 }
