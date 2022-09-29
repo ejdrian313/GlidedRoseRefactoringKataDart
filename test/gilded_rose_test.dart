@@ -34,7 +34,8 @@ main() {
     expect(reporetedText, result);
   });
 
-  void testBackstagePass({int excpected, int sellIn, int quality}) {
+  void testBackstagePass(
+      {int? excpected, required int sellIn, required int quality}) {
     final item =
         Item('Backstage passes to a TAFKAL80ETC concert', sellIn, quality);
     final app = GildedRose([item]);
@@ -42,7 +43,8 @@ main() {
     expect(item.quality, excpected);
   }
 
-  void testAgedBrie({int excpected, int sellIn, int quality}) {
+  void testAgedBrie(
+      {int? excpected, required int sellIn, required int quality}) {
     final item = Item('Aged Brie', sellIn, quality);
     final app = GildedRose([item]);
     app.updateQuality();
@@ -61,15 +63,75 @@ main() {
     testBackstagePass(excpected: 0, sellIn: 0, quality: 10);
   });
 
-  test('Backstage pass sellIn zero', () {
+  test('AgedBrie sellIn zero', () {
     testAgedBrie(excpected: 12, sellIn: 0, quality: 10);
   });
 
-  test('test generic', () {
-    final items = [Item('foo', -1, 3)];
-    final app = GildedRose(items);
+  void testGeneric(
+      {int? excpected, required int sellIn, required int quality}) {
+    final item = Item('foo', sellIn, quality);
+    final app = GildedRose([item]);
     app.updateQuality();
-    expect(items[0].quality, 1);
+    expect(item.quality, excpected);
+  }
+
+  test('generic', () {
+    testGeneric(excpected: 1, sellIn: -1, quality: 3);
+  });
+
+  test('generic quality zero', () {
+    testGeneric(excpected: 0, sellIn: -1, quality: 0);
+  });
+
+  test('generic quality one drops to zero', () {
+    testGeneric(excpected: 0, sellIn: 5, quality: 1);
+  });
+
+  test('backstage pass quality max', () {
+    testBackstagePass(excpected: 50, sellIn: 10, quality: 50);
+  });
+
+  test('backstage sellin 10', () {
+    testBackstagePass(excpected: 7, sellIn: 10, quality: 5);
+  });
+  test('backstage sell in 11', () {
+    testBackstagePass(excpected: 6, sellIn: 11, quality: 5);
+  });
+
+  test('backstage sell in 6', () {
+    testBackstagePass(excpected: 7, sellIn: 6, quality: 5);
+  });
+
+  test('backstage sell in 5', () {
+    testBackstagePass(excpected: 8, sellIn: 5, quality: 5);
+  });
+
+  test('backstage sell in 8 quality 48 reach max', () {
+    testBackstagePass(excpected: 50, sellIn: 8, quality: 48);
+  });
+
+  test('backstage sell in 5 quality 47 reach max', () {
+    testBackstagePass(excpected: 50, sellIn: 5, quality: 47);
+  });
+
+  test('backstage sell in 1 quality 47 reach max', () {
+    testBackstagePass(excpected: 50, sellIn: 1, quality: 47);
+  });
+
+  test('backstage sell in 0 quality drops to zero', () {
+    testBackstagePass(excpected: 0, sellIn: 0, quality: 47);
+  });
+
+  test('generic sell in -1 quality two drops to zero', () {
+    testGeneric(excpected: 0, sellIn: -1, quality: 2);
+  });
+
+  test('AgedBrie sell in -1 quality 48 reach max', () {
+    testAgedBrie(excpected: 50, sellIn: -1, quality: 48);
+  });
+
+  test('AgedBrie sell in -1 quality 49 reach max', () {
+    testAgedBrie(excpected: 50, sellIn: -1, quality: 49);
   });
 }
 

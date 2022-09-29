@@ -86,8 +86,6 @@
     <regex pattern="([\s=])([0-9.]+)">
       <mutation text="$1$2 - 1"/>
       <mutation text="$1$2 + 1"/>
-      <mutation text="$1 - $1"/>
-      <mutation text="$2 - $2"/>
       <mutation text="$2 - 1"/>
       <mutation text="$2 + 1"/>
       <mutation text="$1 + 1"/>

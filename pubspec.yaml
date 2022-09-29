@@ -3,7 +3,7 @@ version: 0.0.1
 description: A simple console application.
 
 environment:
-  sdk: '>=2.10.0 <3.0.0'
+  sdk: '>=2.17.0 <3.0.0'
 
 dev_dependencies:
   mutation_test: ^1.2.2
