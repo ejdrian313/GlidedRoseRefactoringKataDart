@@ -91,6 +91,10 @@ main() {
     testGeneric(excpected: 0, sellIn: -1, quality: 2);
   });
 
+  test('generic sell in 1 quality 1', () {
+    testGeneric(excpected: 1, sellIn: 1, quality: 2);
+  });
+
   test('backstage pass quality max', () {
     testBackstagePass(excpected: 50, sellIn: 10, quality: 50);
   });
@@ -132,6 +136,10 @@ main() {
 
   test('AgedBrie sell in -1 quality 49 reach max', () {
     testAgedBrie(excpected: 50, sellIn: -1, quality: 49);
+  });
+
+  test('AgedBrie sell in -0 quality 49 reach max', () {
+    testAgedBrie(excpected: 41, sellIn: 1, quality: 40);
   });
 }
 

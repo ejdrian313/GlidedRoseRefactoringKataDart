@@ -1,17 +1,25 @@
 import 'package:gilded_rose/goods/good_category.dart';
 import 'package:gilded_rose/goods/quality.dart';
 
-class AgedBrie implements UpdatingInvetory {
-  int _sellIn;
+class AgedBrieFactory {
+  static AgedBrie build(int sellIn) {
+    if (sellIn < 0) return AgedBrieExpired();
+    return AgedBrie();
+  }
+}
 
-  AgedBrie(this._sellIn);
+class AgedBrie implements UpdatingInvetory {
+  AgedBrie();
 
   @override
-  void update(Quality quality) {
-    quality.increaseQuality();
+  void update(Quality quality) => quality.increaseQuality();
+}
 
-    if (_sellIn < 0) {
-      quality.increaseQuality();
-    }
-  }
+class AgedBrieExpired extends AgedBrie implements UpdatingInvetory {
+  AgedBrieExpired();
+
+  @override
+  void update(Quality quality) => quality
+    ..increaseQuality()
+    ..increaseQuality();
 }

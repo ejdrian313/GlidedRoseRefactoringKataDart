@@ -10,11 +10,11 @@ class GoodCategory {
   static UpdatingInvetory build(String name, int sellIn) {
     switch (name) {
       case backstagePass:
-        return BackstagePass(sellIn);
+        return BackstagePassFactory.build(sellIn);
       case agedBrie:
-        return AgedBrie(sellIn);
+        return AgedBrieFactory.build(sellIn);
       default:
-        return Generic(sellIn);
+        return GenericFactory.build(sellIn);
     }
   }
 }
