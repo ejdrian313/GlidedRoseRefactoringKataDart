@@ -15,8 +15,6 @@ class BackstagePassFactory {
 }
 
 class BackstagePass implements UpdatingInvetory {
-  BackstagePass();
-
   @override
   void update(Quality quality) => quality.increaseQuality();
 }

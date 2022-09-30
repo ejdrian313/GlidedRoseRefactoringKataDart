@@ -9,8 +9,6 @@ class AgedBrieFactory {
 }
 
 class AgedBrie implements UpdatingInvetory {
-  AgedBrie();
-
   @override
   void update(Quality quality) => quality.increaseQuality();
 }

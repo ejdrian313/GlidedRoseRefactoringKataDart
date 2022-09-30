@@ -80,7 +80,7 @@ main() {
   });
 
   test('generic quality zero', () {
-    testGeneric(excpected: 0, sellIn: -1, quality: 0);
+    testGeneric(excpected: 1, sellIn: 0, quality: 3);
   });
 
   test('generic quality one drops to zero', () {
@@ -155,7 +155,7 @@ main() {
   });
 
   test('conjured quality zero', () {
-    testConjured(excpected: 0, sellIn: -1, quality: 0);
+    testConjured(excpected: 0, sellIn: 0, quality: 4);
   });
 
   test('conjured quality one drops to zero', () {
