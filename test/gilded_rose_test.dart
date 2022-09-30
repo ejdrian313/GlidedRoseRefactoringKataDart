@@ -87,6 +87,10 @@ main() {
     testGeneric(excpected: 0, sellIn: 5, quality: 1);
   });
 
+  test('generic sell in -1 quality two drops to zero', () {
+    testGeneric(excpected: 0, sellIn: -1, quality: 2);
+  });
+
   test('backstage pass quality max', () {
     testBackstagePass(excpected: 50, sellIn: 10, quality: 50);
   });
@@ -120,10 +124,6 @@ main() {
 
   test('backstage sell in 0 quality drops to zero', () {
     testBackstagePass(excpected: 0, sellIn: 0, quality: 47);
-  });
-
-  test('generic sell in -1 quality two drops to zero', () {
-    testGeneric(excpected: 0, sellIn: -1, quality: 2);
   });
 
   test('AgedBrie sell in -1 quality 48 reach max', () {
