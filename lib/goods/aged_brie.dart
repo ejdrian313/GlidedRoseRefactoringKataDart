@@ -1,28 +1,17 @@
 import 'package:gilded_rose/goods/good_category.dart';
+import 'package:gilded_rose/goods/quality.dart';
 
 class AgedBrie implements UpdatingInvetory {
-  int _quality;
   int _sellIn;
 
-  AgedBrie(this._quality, this._sellIn);
+  AgedBrie(this._sellIn);
 
   @override
-  void update() {
-    if (_quality < 50) {
-      _quality++;
-    }
-    _sellIn--;
+  void update(Quality quality) {
+    quality.increaseQuality();
 
     if (_sellIn < 0) {
-      if (_quality < 50) {
-        _quality++;
-      }
+      quality.increaseQuality();
     }
   }
-
-  @override
-  int get quality => _quality;
-
-  @override
-  int get sellIn => _sellIn;
 }

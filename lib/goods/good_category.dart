@@ -1,31 +1,24 @@
 import 'package:gilded_rose/goods/aged_brie.dart';
 import 'package:gilded_rose/goods/backstage_pass.dart';
 import 'package:gilded_rose/goods/generic.dart';
-import 'package:gilded_rose/goods/sulfuras.dart';
+import 'package:gilded_rose/goods/quality.dart';
 
-const sulfuras = 'Sulfuras, Hand of Ragnaros';
 const backstagePass = 'Backstage passes to a TAFKAL80ETC concert';
 const agedBrie = 'Aged Brie';
 
 class GoodCategory {
-  static UpdatingInvetory build(String name, int sellIn, int quality) {
+  static UpdatingInvetory build(String name, int sellIn) {
     switch (name) {
-      case sulfuras:
-        return Sulfuras(quality, sellIn);
       case backstagePass:
-        return BackstagePass(quality, sellIn);
+        return BackstagePass(sellIn);
       case agedBrie:
-        return AgedBrie(quality, sellIn);
+        return AgedBrie(sellIn);
       default:
-        return Generic(quality, sellIn);
+        return Generic(sellIn);
     }
   }
 }
 
 abstract class UpdatingInvetory {
-  int get quality;
-
-  int get sellIn;
-
-  void update();
+  void update(Quality update);
 }

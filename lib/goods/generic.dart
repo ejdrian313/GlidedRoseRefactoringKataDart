@@ -1,27 +1,17 @@
 import 'package:gilded_rose/goods/good_category.dart';
+import 'package:gilded_rose/goods/quality.dart';
 
 class Generic implements UpdatingInvetory {
-  int _quality;
   int _sellIn;
 
-  Generic(this._quality, this._sellIn);
+  Generic(this._sellIn);
 
   @override
-  void update() {
-    if (_quality > 0) {
-      _quality--;
-    }
-    _sellIn = _sellIn - 1;
+  void update(Quality quality) {
+    quality.degradeQuality();
+
     if (_sellIn < 0) {
-      if (_quality > 0) {
-        _quality--;
-      }
+      quality.degradeQuality();
     }
   }
-
-  @override
-  int get quality => _quality;
-
-  @override
-  int get sellIn => _sellIn;
 }
