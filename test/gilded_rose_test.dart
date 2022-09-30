@@ -141,6 +141,34 @@ main() {
   test('AgedBrie sell in -0 quality 49 reach max', () {
     testAgedBrie(excpected: 41, sellIn: 1, quality: 40);
   });
+
+  void testConjured(
+      {int? excpected, required int sellIn, required int quality}) {
+    final item = Item('Conjured', sellIn, quality);
+    final app = GildedRose([item]);
+    app.updateQuality();
+    expect(item.quality, excpected);
+  }
+
+  test('conjured', () {
+    testConjured(excpected: 0, sellIn: -1, quality: 3);
+  });
+
+  test('conjured quality zero', () {
+    testConjured(excpected: 0, sellIn: -1, quality: 0);
+  });
+
+  test('conjured quality one drops to zero', () {
+    testConjured(excpected: 0, sellIn: 5, quality: 1);
+  });
+
+  test('conjured sell in -1 quality two drops to zero', () {
+    testConjured(excpected: 0, sellIn: -1, quality: 4);
+  });
+
+  test('conjured sell in 1 quality 1', () {
+    testConjured(excpected: 0, sellIn: 1, quality: 2);
+  });
 }
 
 final result = """OMGHAI!

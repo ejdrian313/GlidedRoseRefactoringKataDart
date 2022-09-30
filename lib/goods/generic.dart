@@ -3,7 +3,7 @@ import 'package:gilded_rose/goods/quality.dart';
 
 class GenericFactory {
   static Generic build(int sellIn) {
-    if (sellIn < -1) return GenericExpired();
+    if (sellIn < 0) return GenericExpired();
     return Generic();
   }
 }
