@@ -1,64 +1,25 @@
+import 'package:gilded_rose/goods/aged_brie.dart';
+import 'package:gilded_rose/goods/backstage_pass.dart';
+import 'package:gilded_rose/goods/generic.dart';
+import 'package:gilded_rose/goods/sulfuras.dart';
+
 const sulfuras = 'Sulfuras, Hand of Ragnaros';
 const backstagePass = 'Backstage passes to a TAFKAL80ETC concert';
 const agedBrie = 'Aged Brie';
 
 class GoodCategory {
-  static UpdatingInvetory build(String name) {
+  static UpdatingInvetory build(String name, int sellIn, int quality) {
     switch (name) {
       case sulfuras:
-        return Sulfuras();
+        return Sulfuras(quality, sellIn);
       case backstagePass:
-        return BackstagePass();
+        return BackstagePass(quality, sellIn);
       case agedBrie:
-        return AgedBrie();
+        return AgedBrie(quality, sellIn);
       default:
-        return Generic();
+        return Generic(quality, sellIn);
     }
   }
-}
-
-class AgedBrie implements UpdatingInvetory {
-  @override
-  void update() {}
-
-  @override
-  int get quality => throw UnimplementedError();
-
-  @override
-  int get sellIn => throw UnimplementedError();
-}
-
-class BackstagePass implements UpdatingInvetory {
-  @override
-  void update() {}
-
-  @override
-  int get quality => throw UnimplementedError();
-
-  @override
-  int get sellIn => throw UnimplementedError();
-}
-
-class Sulfuras implements UpdatingInvetory {
-  @override
-  void update() {}
-
-  @override
-  int get quality => throw UnimplementedError();
-
-  @override
-  int get sellIn => throw UnimplementedError();
-}
-
-class Generic implements UpdatingInvetory {
-  @override
-  void update() {}
-
-  @override
-  int get quality => throw UnimplementedError();
-
-  @override
-  int get sellIn => throw UnimplementedError();
 }
 
 abstract class UpdatingInvetory {
