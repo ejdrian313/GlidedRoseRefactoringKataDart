@@ -8,15 +8,11 @@ class GildedRose {
   GildedRose(this.items);
 
   void updateQuality() {
-    for (int i = 0; i < items.length; i++) {
-      final item = items[i];
+    for (final item in items) {
       if (isSulfuras(item)) continue;
       final quality = Quality(item.quality);
       item.sellIn--;
-      final good = GoodCategory.build(
-        item.name,
-        item.sellIn,
-      );
+      final good = GoodCategory.build(item.name, item.sellIn);
       good.update(quality);
 
       item.quality = quality.amount;
