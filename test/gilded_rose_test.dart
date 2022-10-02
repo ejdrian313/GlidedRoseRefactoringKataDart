@@ -13,8 +13,7 @@ main() {
       new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
       new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
       new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-      // this conjured item does not work properly yet
-      // new Item("Conjured Mana Cake", 3, 6)
+      new Item("Conjured Mana Cake", 3, 6)
     ];
     GildedRose app = new GildedRose(items);
 
@@ -144,7 +143,7 @@ main() {
 
   void testConjured(
       {int? excpected, required int sellIn, required int quality}) {
-    final item = Item('Conjured', sellIn, quality);
+    final item = Item('Conjured Mana Cake', sellIn, quality);
     final app = GildedRose([item]);
     app.updateQuality();
     expect(item.quality, excpected);
@@ -166,8 +165,8 @@ main() {
     testConjured(excpected: 0, sellIn: -1, quality: 4);
   });
 
-  test('conjured sell in 1 quality 1', () {
-    testConjured(excpected: 0, sellIn: 1, quality: 2);
+  test('conjured sell in 1 quality drops to zero', () {
+    testConjured(excpected: 4, sellIn: 1, quality: 6);
   });
 }
 
@@ -182,6 +181,7 @@ Sulfuras, Hand of Ragnaros, -1, 80
 Backstage passes to a TAFKAL80ETC concert, 15, 20
 Backstage passes to a TAFKAL80ETC concert, 10, 49
 Backstage passes to a TAFKAL80ETC concert, 5, 49
+Conjured Mana Cake, 3, 6
 
 -------- day 1 --------
 name, sellIn, quality
@@ -193,5 +193,6 @@ Sulfuras, Hand of Ragnaros, -1, 80
 Backstage passes to a TAFKAL80ETC concert, 14, 21
 Backstage passes to a TAFKAL80ETC concert, 9, 50
 Backstage passes to a TAFKAL80ETC concert, 4, 50
+Conjured Mana Cake, 2, 4
 
 """;

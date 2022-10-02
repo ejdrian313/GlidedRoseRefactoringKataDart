@@ -6,7 +6,7 @@ import 'package:gilded_rose/goods/quality.dart';
 
 const backstagePass = 'Backstage passes to a TAFKAL80ETC concert';
 const agedBrie = 'Aged Brie';
-const conjured = 'Conjured';
+const conjured = 'Conjured Mana Cake';
 
 class GoodCategory {
   static UpdatingInvetory build(String name, int sellIn) {
